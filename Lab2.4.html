@@ -1,1 +1,16 @@
-
+<html>
+    <head>
+        <title>Печенкина А.В., Елисеева В.А. ПИ-318</title>
+        <script type="text/javascript" src="jquery-3.6.0.js"></script>
+    </head>
+    <body onload="mouse_position()">
+        <form name="Form1">
+            Координаты (x;y): <input type="text" name="coord">
+        </form>
+        <script type="text/javascript">
+            $("body").mousemove(function(e) {
+                document.Form1.coord.value = e.pageX+ ' ; ' + e.pageY;
+            })
+        </script>
+    </body>
+</html>
