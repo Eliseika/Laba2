@@ -2,28 +2,47 @@
     <head>
         <title>Печенкина А.В., Елисеева В.А. ПИ-318</title>
         <script type="text/javascript" src="jquery-3.6.0.js"></script>
+        <style>
+            #box{position: absolute; top: 50px; left: 500px;}
+        </style>
     </head>
     <body>
         <button class="left"> Влево </button>
         <button class="right"> Вправо </button>
         <button class="up"> Вверх </button>
-        <button class="down"> Вниз </button>
-        <div class="control_block_container">
-            <div id="box" style="position:absolute; top:50px; left:500px"> <img src="e9abaee383f5afac5afc95a2ba4eecbf.jpg" width="250" height="400" alt="todo"> </div>
-        </div>
+        <button class="down"> Вниз </button><br>
+        <img src="e9abaee383f5afac5afc95a2ba4eecbf.jpg" width="250" height="400" alt="todo" id="box">
         <script type="text/javascript">
-        $(".left").click(function(){
-            $("#box").animate({left: "-=100"}, 1000)
-        });
-        $(".right").click(function(){
-            $("#box").animate({left: "+=100"}, 1000)
-        });
-        $(".up").click(function(){
-            $("#box").animate({top: "-=100"}, 1000)
-        });
-        $(".down").click(function(){
-            $("#box").animate({top: "+=100"}, 1000)
-        });
+            var lr = window.screen.availWidth,
+                ud = window.screen.availHeight,
+                lr1 = 0,
+                lr2 = 0,
+                ud1 = 0,
+                ud2 = 0;
+            $(".left").click(function(){
+                if (0<(500-lr1+lr2)){
+                $("#box").animate({left: "-=100"}, 1000)
+                lr1=lr1+100;
+                }
+            });
+            $(".right").click(function(){
+                if (lr>(500+250-lr1+lr2+100)){
+                $("#box").animate({left: "+=100"}, 1000)
+                lr2=lr2+100;
+                }
+            });
+            $(".up").click(function(){
+                if (0<(50-ud1+ud2-100)){
+                $("#box").animate({top: "-=100"}, 1000)
+                ud1=ud1+100;
+                }
+            });
+            $(".down").click(function(){
+                if (ud>(50+400-ud1+ud2+100)){
+                $("#box").animate({top: "+=100"}, 1000)
+                ud2=ud2+100;
+                }
+            });
         </script>
     </body>
 </html>
